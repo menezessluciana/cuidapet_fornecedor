@@ -1,4 +1,5 @@
 import 'package:cuidapet_fornecedor/app/shared/auth_store.dart';
+import 'package:cuidapet_fornecedor/app/shared/theme_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -31,6 +32,7 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     ScreenUtil.init(context);
+    ThemeUtils.init(context);
     return Scaffold(
       body: Center(
           child: Container(child: Image.asset('lib/assets/images/logo.png'))),
