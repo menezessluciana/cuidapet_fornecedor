@@ -23,9 +23,9 @@ vars:
     get: flutter pub get
     runner: flutter pub run build_runner
 scripts: 
-    mobx_build: $runner build
-    mobx_watch: $clean & $get & $runner watch
-    mobx_build_clean: $clean & $get & $runner build --delete-conflicting-outputs
+  mobx_build: $runner build --delete-conflicting-outputs
+  mobx_watch: $clean & $get & $runner watch --delete-conflicting-outputs
+  mobx_build_clean: $clean & $get & $runner build --delete-conflicting-outputs
 
 
 
@@ -38,6 +38,7 @@ dependencies:
   mobx: ^1.2.1
   flutter_modular: ^2.0.1
   get: ^3.15.0
+  flutter_screenutil: ^1.1.0
   flutter:
     sdk: flutter
 
@@ -66,8 +67,8 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
+  assets:
+    - lib/assets/images/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
