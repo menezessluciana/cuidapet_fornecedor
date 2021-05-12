@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "873066128981",
+    "project_id": "cuidapet-fornecedor",
+    "storage_bucket": "cuidapet-fornecedor.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:873066128981:android:d727f86305c258777216dc",
+        "android_client_info": {
+          "package_name": "br.com.lucianamenezes.cuidapet_fornecedor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "873066128981-ag4f7ikun7gggcvku3669et7c46emgm1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.lucianamenezes.cuidapet_fornecedor",
+            "certificate_hash": "036e46fe1005cf012e2a1340ec265916b6dfd29d"
+          }
+        },
+        {
+          "client_id": "873066128981-6h5fvb6i3d41c94oi166i716ogpfod5b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLnVEnMtqgwRwyO5ayOBTgvRh2pM82rPQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "873066128981-6h5fvb6i3d41c94oi166i716ogpfod5b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
