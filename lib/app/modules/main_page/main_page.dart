@@ -18,8 +18,6 @@ class _MainPageState extends State<MainPage> {
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) async {
       final authStore = Modular.get<AuthStore>();
       final isLogged = await authStore.isLogged();
-      if (isLogged) {}
-      // final isLogged = await authStore.isLogged();
       if (isLogged) {
         // await authStore.loadUsuario();
         Modular.to.pushNamedAndRemoveUntil('/home', (_) => false);

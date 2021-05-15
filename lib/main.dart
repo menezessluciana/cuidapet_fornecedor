@@ -1,3 +1,4 @@
+import 'package:cuidapet_fornecedor/app/core/push_notification/push_message_configure.dart';
 import 'package:flutter/material.dart';
 import 'package:cuidapet_fornecedor/app/app_module.dart';
 import 'package:flutter/services.dart';
@@ -11,6 +12,7 @@ void main() async {
   //*Definindo apenas uma orientação para o app
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   await loadEnv();
+  PushMessageConfigure().configure();
   runApp(ModularApp(module: AppModule()));
 }
 

@@ -1,11 +1,25 @@
+import 'dart:io';
+
 import 'package:cuidapet_fornecedor/app/core/dio/custom_dio.dart';
 import 'package:cuidapet_fornecedor/app/models/access_token_model.dart';
+import 'package:cuidapet_fornecedor/app/models/confirm_login_model.dart';
+import 'package:cuidapet_fornecedor/app/repositories/shared_prefs_repository.dart';
 
 class UserRepository {
   Future<AccessTokenModel> login(String email, String password) {
-    CustomDio.instance.post('/login', data: {
+    return CustomDio.instance.post('/login', data: {
       'login': email,
       'senha': password,
     }).then((res) => AccessTokenModel.fromJson(res.data));
+  }
+
+  Future<ConfirmLoginModel> confirmLogin() async {
+    final prefs = await SharedPrefsRepository.instance;
+    final deviceId = prefs.deviceId;
+
+    return CustomDio.authInstance.patch('/login/confirmar', data: {
+      'ios_token': Platform.isIOS ? deviceId : null,
+      'android_token': Platform.isAndroid ? deviceId : null,
+    }).then((res) => ConfirmLoginModel.fromJson(res.data));
   }
 }

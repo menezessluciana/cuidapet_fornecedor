@@ -1,11 +1,13 @@
+import 'package:cuidapet_fornecedor/app/repositories/shared_prefs_repository.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'custom_dio.dart';
 
 //Responsável por inserir o token no header
 class AuthInterceptorWrapper extends InterceptorsWrapper {
   @override
   Future onRequest(RequestOptions options) async {
+    final prefs = await SharedPrefsRepository.instance;
+    options.headers['Authorization'] = prefs.accessToken;
     if (DotEnv().env['profile'] == 'dev') {
       print('REQUEST LOG');
       print('url ${options.uri}');

@@ -45,6 +45,7 @@ dependencies:
   flutter_secure_storage: ^3.3.3
     #Json
   json_annotation: ^3.0.1
+  firebase_messaging: ^6.0.16
   firebase_auth: ^0.16.1
   flutter:
     sdk: flutter

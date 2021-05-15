@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:cuidapet_fornecedor/app/shared/components/cuidapet_textformfield.dart';
 import 'package:cuidapet_fornecedor/app/shared/theme_utils.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -107,9 +108,10 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
               padding: EdgeInsets.all(10),
               height: 60,
               child: RaisedButton(
-                onPressed: () {
-                  FirebaseAuth.instance.createUserWithEmailAndPassword(
-                      email: 'menezessluciana@gmail.com', password: '123123');
+                onPressed: () async {
+                  FirebaseMessaging _fcm = FirebaseMessaging();
+                  _fcm.requestNotificationPermissions();
+                  print(await _fcm.getToken());
                 },
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20),
