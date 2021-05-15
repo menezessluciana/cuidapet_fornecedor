@@ -40,6 +40,11 @@ dependencies:
   flutter_modular: ^2.0.1
   get: ^3.15.0
   flutter_screenutil: ^1.1.0
+  shared_preferences: ^0.5.7+3
+  #Guarda informação criptografada
+  flutter_secure_storage: ^3.3.3
+    #Json
+  json_annotation: ^3.0.1
   firebase_auth: ^0.16.1
   flutter:
     sdk: flutter

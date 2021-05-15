@@ -1,5 +1,7 @@
 import 'package:cuidapet_fornecedor/app/modules/home/home_module.dart';
 import 'package:cuidapet_fornecedor/app/modules/main_page/main_page.dart';
+import 'package:cuidapet_fornecedor/app/repositories/user_repository.dart';
+import 'package:cuidapet_fornecedor/app/services/user_service.dart';
 import 'package:cuidapet_fornecedor/app/shared/auth_store.dart';
 import 'app_controller.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -13,6 +15,8 @@ class AppModule extends MainModule {
   List<Bind> get binds => [
         Bind((i) => AppController()),
         Bind((i) => AuthStore()),
+        Bind((i) => UserRepository()),
+        Bind((i) => UserService(i()))
       ];
 
   @override
