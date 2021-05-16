@@ -1,4 +1,5 @@
 import 'package:cuidapet_fornecedor/app/core/exceptions/cuidapet_exceptions.dart';
+import 'package:cuidapet_fornecedor/app/services/user_service.dart';
 import 'package:cuidapet_fornecedor/app/shared/components/loader.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -11,12 +12,15 @@ part 'login_controller.g.dart';
 class LoginController = _LoginControllerBase with _$LoginController;
 
 abstract class _LoginControllerBase with Store {
+  final UserService _service;
   GlobalKey<FormState> formKey = GlobalKey();
   TextEditingController loginController = TextEditingController();
   TextEditingController senhaController = TextEditingController();
 
   @observable
   bool obscureText = true;
+
+  _LoginControllerBase(this._service);
 
   @action
   void showPassword() {
@@ -28,15 +32,15 @@ abstract class _LoginControllerBase with Store {
     if (formKey.currentState.validate()) {
       try {
         Loader.show();
-        // await _service.login(false,
-        //     email: loginController.text, senha: senhaController.text);
+        await _service.login(loginController.text, senhaController.text);
         Loader.hide();
         Modular.to.pushReplacementNamed('/');
       } on AcessoNegadoException catch (e) {
         Loader.hide();
-        print(e);
+        print('error ${e}');
         Get.snackbar('Erro', 'Login ou senha inválidos');
       } catch (e) {
+        print('error ${e}');
         Loader.hide();
         Get.snackbar('Erro', 'Erro ao realizar login');
       }

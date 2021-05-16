@@ -108,11 +108,7 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
               padding: EdgeInsets.all(10),
               height: 60,
               child: RaisedButton(
-                onPressed: () async {
-                  FirebaseMessaging _fcm = FirebaseMessaging();
-                  _fcm.requestNotificationPermissions();
-                  print(await _fcm.getToken());
-                },
+                onPressed: () => controller.login(),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20),
                 ),

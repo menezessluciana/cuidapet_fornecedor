@@ -1,3 +1,5 @@
+import 'package:cuidapet_fornecedor/app/core/dio/custom_dio.dart';
+import 'package:cuidapet_fornecedor/app/repositories/security_storage_repository.dart';
 import 'package:cuidapet_fornecedor/app/repositories/shared_prefs_repository.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
@@ -28,8 +30,8 @@ class AuthInterceptorWrapper extends InterceptorsWrapper {
   Future onError(DioError err) async {
     print('ON ERROR LOG');
     print('error ${err.response}');
-    //*Verificar para realizar o refresh token
-    //* 403 -> Forbidden & 401 -> unauthorized
+    // *Verificar para realizar o refresh token
+    // * 403 -> Forbidden & 401 -> unauthorized
     // if (err.response?.statusCode == 403 || err.response?.statusCode == 401) {
     //   await _refreshToken();
     //   final req = err.request;
