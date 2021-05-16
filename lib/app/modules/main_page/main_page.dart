@@ -19,7 +19,7 @@ class _MainPageState extends State<MainPage> {
       final authStore = Modular.get<AuthStore>();
       final isLogged = await authStore.isLogged();
       if (isLogged) {
-        // await authStore.loadUsuario();
+        await authStore.loadUser();
         Modular.to.pushNamedAndRemoveUntil('/home', (_) => false);
       } else {
         Modular.to.pushNamedAndRemoveUntil('/login', (_) => false);

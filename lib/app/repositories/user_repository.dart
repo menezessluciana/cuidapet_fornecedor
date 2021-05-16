@@ -24,9 +24,9 @@ class UserRepository {
     }).then((res) => ConfirmLoginModel.fromJson(res.data));
   }
 
-  Future<UsuarioModel> recoveryDataLoggedUser() {
+  Future<UserModel> recoveryDataLoggedUser() {
     return CustomDio.authInstance
         .get('/usuario')
-        .then((res) => UsuarioModel.fromJson(res.data));
+        .then((res) => UserModel.fromJson(res.data));
   }
 }

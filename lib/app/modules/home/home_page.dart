@@ -1,3 +1,4 @@
+import 'package:cuidapet_fornecedor/app/shared/auth_store.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -22,6 +23,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
       ),
       body: Column(
         children: <Widget>[
+          Text(Modular.get<AuthStore>().loggedUser.email),
           FlatButton(
               child: Text('Logout'),
               onPressed: () async =>

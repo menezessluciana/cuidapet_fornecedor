@@ -1,6 +1,8 @@
 import 'dart:convert';
 
 import 'package:cuidapet_fornecedor/app/models/user_model.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SharedPrefsRepository {
@@ -30,18 +32,22 @@ class SharedPrefsRepository {
 
   String get deviceId => prefs.get(_DEVICE_ID);
 
-  void registerUserData(UsuarioModel usuario) async {
+  void registerUserData(UserModel usuario) async {
     //*JSON ENCODE = Transforma um objeto em uma string
     await prefs.setString(_USER_DATA, jsonEncode(usuario));
   }
 
-  UsuarioModel get userData {
+  UserModel get userData {
     //* Não pode passar um valor null pro jsonDecode
     if (prefs.containsKey(_USER_DATA)) {
       //*JSON DECODE = Transforma string em um Map<String, dynamic>
       Map<String, dynamic> userMap = jsonDecode(prefs.getString(_USER_DATA));
-      return UsuarioModel.fromJson(userMap);
+      return UserModel.fromJson(userMap);
     }
     return null;
+  }
+
+  Future<void> logout() async {
+    await Modular.to.pushNamedAndRemoveUntil('/', ModalRoute.withName('/'));
   }
 }
