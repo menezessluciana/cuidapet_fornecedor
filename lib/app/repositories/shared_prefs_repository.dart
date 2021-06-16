@@ -48,6 +48,7 @@ class SharedPrefsRepository {
   }
 
   Future<void> logout() async {
+    await prefs.clear();
     await Modular.to.pushNamedAndRemoveUntil('/', ModalRoute.withName('/'));
   }
 }

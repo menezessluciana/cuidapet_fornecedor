@@ -1,5 +1,5 @@
-import 'package:cuidapet_fornecedor/app/modules/home/home_module.dart';
 import 'package:cuidapet_fornecedor/app/modules/main_page/main_page.dart';
+import 'package:cuidapet_fornecedor/app/modules/schedules/schedules_module.dart';
 import 'package:cuidapet_fornecedor/app/repositories/user_repository.dart';
 import 'package:cuidapet_fornecedor/app/services/user_service.dart';
 import 'package:cuidapet_fornecedor/app/shared/auth_store.dart';
@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:cuidapet_fornecedor/app/app_widget.dart';
 
 import 'modules/login/login_module.dart';
+import 'modules/schedule/schedule_module.dart';
 
 class AppModule extends MainModule {
   @override
@@ -23,8 +24,9 @@ class AppModule extends MainModule {
   List<ModularRouter> get routers => [
         ModularRouter(Modular.initialRoute,
             child: (context, args) => MainPage()),
-        ModularRouter('/home', module: HomeModule()),
         ModularRouter('/login', module: LoginModule()),
+        ModularRouter('/schedules', module: SchedulesModule()),
+        ModularRouter('/schedule', module: ScheduleModule()),
       ];
 
   @override

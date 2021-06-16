@@ -1,25 +1,41 @@
-import 'package:cuidapet_fornecedor/app/modules/home/home_controller.dart';
+import 'package:cuidapet_fornecedor/app/modules/schedules/schedules_controller.dart';
+import 'package:cuidapet_fornecedor/app/repositories/shared_prefs_repository.dart';
 import 'package:cuidapet_fornecedor/app/shared/theme_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_screenutil/screenutil.dart';
 
-class HomeAppBar extends PreferredSize {
-  final HomeController controller;
-  HomeAppBar(this.controller)
+class SchedulesAppBar extends PreferredSize {
+  final SchedulesController controller;
+  SchedulesAppBar(this.controller)
       : super(
-          preferredSize: Size(double.infinity, 100),
+          preferredSize: Size(double.infinity, 110),
           child: AppBar(
             backgroundColor: Colors.grey[100],
             title: Padding(
               padding: const EdgeInsets.only(bottom: 12.0),
               child: Text('Cuidapet', style: TextStyle(color: Colors.white)),
             ),
+            leading: IconButton(
+              icon: Icon(Icons.chat, color: Colors.white),
+              onPressed: () async {
+                //*Quando o usuário sair da tela de endereço, chama o metodo para recuperar o endereço selecionado
+              },
+            ),
+            actions: <Widget>[
+              IconButton(
+                icon: Icon(Icons.logout, color: Colors.white),
+                onPressed: () async {
+                  final prefs = await SharedPrefsRepository.instance;
+                  await prefs.logout();
+                },
+              ),
+            ],
             elevation: 0,
             flexibleSpace: Stack(
               children: <Widget>[
                 Container(
-                  height: 110,
+                  height: 100,
                   width: double.infinity,
                   color: ThemeUtils.primaryColor,
                 ),
@@ -32,9 +48,9 @@ class HomeAppBar extends PreferredSize {
                       borderRadius: BorderRadius.circular(30),
                       child: Observer(builder: (_) {
                         return TextFormField(
-                          // onChanged: (nome) =>
-                          //     controller.filtrarEstabelecimentoPorNome(),
-                          // controller: controller.filtroNomeController,
+                          onChanged: (nome) =>
+                              controller.filterSchedulesByPetName(),
+                          controller: controller.nameFilterController,
                           decoration: InputDecoration(
                             fillColor: Colors.white,
                             filled: true,
