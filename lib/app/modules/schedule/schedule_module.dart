@@ -6,7 +6,7 @@ import 'schedule_page.dart';
 class ScheduleModule extends ChildModule {
   @override
   List<Bind> get binds => [
-        Bind((i) => ScheduleController(i.get())),
+        Bind((i) => ScheduleController(i.get(), i.get())),
       ];
 
   @override

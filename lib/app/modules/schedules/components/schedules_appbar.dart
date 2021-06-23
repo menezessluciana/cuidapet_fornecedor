@@ -3,6 +3,7 @@ import 'package:cuidapet_fornecedor/app/repositories/shared_prefs_repository.dar
 import 'package:cuidapet_fornecedor/app/shared/theme_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_screenutil/screenutil.dart';
 
 class SchedulesAppBar extends PreferredSize {
@@ -17,9 +18,9 @@ class SchedulesAppBar extends PreferredSize {
               child: Text('Cuidapet', style: TextStyle(color: Colors.white)),
             ),
             leading: IconButton(
-              icon: Icon(Icons.chat, color: Colors.white),
+              icon: Icon(Icons.chat_outlined, color: Colors.white),
               onPressed: () async {
-                //*Quando o usuário sair da tela de endereço, chama o metodo para recuperar o endereço selecionado
+                Modular.to.pushNamed('/chats');
               },
             ),
             actions: <Widget>[

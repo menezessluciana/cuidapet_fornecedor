@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../theme_utils.dart';
-
 class CuidapetTextFormField extends TextFormField {
   CuidapetTextFormField(
       {TextEditingController controller,
@@ -11,11 +9,14 @@ class CuidapetTextFormField extends TextFormField {
       bool readOnly = false,
       Widget icon,
       String initialValue,
+      Color color,
+      FontWeight fontWeight,
       IconButton suffixIcon})
       : super(
             controller: controller,
             obscureText: obscureText,
             readOnly: readOnly,
+            style: TextStyle(fontWeight: fontWeight, color: color),
             initialValue: initialValue,
             decoration: InputDecoration(
               labelText: label,

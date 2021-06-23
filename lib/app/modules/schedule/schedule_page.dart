@@ -25,6 +25,28 @@ class _SchedulePageState
 
   var dateFormat = DateFormat('dd/MM/yyyy');
 
+  Map<String, dynamic> scheduleStatus = {
+    'P': {
+      'name': 'Pendente',
+      'color': Colors.grey,
+    },
+    'CN': {
+      'icon': Icons.done_sharp,
+      'name': 'Confirmado',
+      'color': ThemeUtils.primaryColor,
+    },
+    'F': {
+      'icon': Icons.done_all_outlined,
+      'name': 'Finalizado',
+      'color': Colors.grey[700],
+    },
+    'C': {
+      'icon': Icons.cancel_sharp,
+      'name': 'Cancelado',
+      'color': Colors.red[400],
+    },
+  };
+
   var status = {
     'P': 'Pendente',
     'CN': 'Confirmado',
@@ -50,32 +72,65 @@ class _SchedulePageState
         child: SingleChildScrollView(
           child: Column(
             children: <Widget>[
-              CuidapetTextFormField(
-                label: 'Nome do Pet',
-                initialValue: widget.schedule.nomePet,
-                readOnly: true,
-              ),
-              SizedBox(height: 15),
-              CuidapetTextFormField(
-                label: 'Nome do responsável',
-                initialValue: widget.schedule.nome,
-                readOnly: true,
-              ),
-              SizedBox(height: 15),
-              CuidapetTextFormField(
-                label: 'Data de agendamento',
-                initialValue:
-                    dateFormat.format(widget.schedule.dataAgendamento),
-                readOnly: true,
-              ),
-              SizedBox(height: 15),
-              CuidapetTextFormField(
-                label: 'Status',
-                initialValue: status[widget.schedule.status],
-                readOnly: true,
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+                // color: ThemeUtils.primaryColorLight,
+                child: Column(
+                  children: [
+                    CuidapetTextFormField(
+                      label: 'Nome do Pet',
+                      initialValue: widget.schedule.nomePet,
+                      readOnly: true,
+                    ),
+                    SizedBox(height: 15),
+                    CuidapetTextFormField(
+                      label: 'Nome do responsável',
+                      initialValue: widget.schedule.nome,
+                      readOnly: true,
+                    ),
+                    SizedBox(height: 15),
+                    CuidapetTextFormField(
+                      label: 'Data de agendamento',
+                      initialValue:
+                          dateFormat.format(widget.schedule.dataAgendamento),
+                      readOnly: true,
+                    ),
+                    SizedBox(height: 15),
+                    CuidapetTextFormField(
+                      label: 'Status',
+                      color: scheduleStatus[widget.schedule.status]['color'],
+                      fontWeight: FontWeight.bold,
+                      initialValue: scheduleStatus[widget.schedule.status]
+                          ['name'],
+                      readOnly: true,
+                    ),
+                  ],
+                ),
               ),
               SizedBox(height: 15),
               _buildServices(),
+              InkWell(
+                onTap: () => controller.getScheduleChat(widget.schedule.id),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(Icons.chat_outlined, size: 23),
+                      SizedBox(width: 5),
+                      Text(
+                        'Entre em contato',
+                        style: TextStyle(fontSize: 18),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Divider(
+                thickness: 1,
+                color: ThemeUtils.primaryColor,
+              ),
               _buildButtons(),
             ],
           ),
@@ -102,6 +157,7 @@ class _SchedulePageState
                 onPressed: () =>
                     {controller.changeScheduleStatus('CN', widget.schedule.id)},
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Icon(Icons.done_sharp, size: 20, color: Colors.white),
                     SizedBox(width: 5),
@@ -128,6 +184,7 @@ class _SchedulePageState
                 onPressed: () =>
                     {controller.changeScheduleStatus('C', widget.schedule.id)},
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Icon(Icons.cancel_outlined, size: 20, color: Colors.white),
                     SizedBox(width: 5),
@@ -160,6 +217,7 @@ class _SchedulePageState
                 onPressed: () =>
                     {controller.changeScheduleStatus('F', widget.schedule.id)},
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Icon(Icons.done_sharp, size: 20, color: Colors.white),
                     SizedBox(width: 5),
@@ -186,6 +244,7 @@ class _SchedulePageState
                 onPressed: () =>
                     {controller.changeScheduleStatus('C', widget.schedule.id)},
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Icon(Icons.cancel_outlined, size: 20, color: Colors.white),
                     SizedBox(width: 5),
@@ -220,6 +279,10 @@ class _SchedulePageState
           child: Text('Serviços escolhidos: ',
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
         ),
+        Divider(
+          thickness: 1,
+          color: ThemeUtils.primaryColor,
+        ),
         ListView.builder(
             shrinkWrap: true,
             physics: NeverScrollableScrollPhysics(),
@@ -228,10 +291,14 @@ class _SchedulePageState
             itemBuilder: (_, index) {
               var s = widget.schedule.servicos[index];
               return ListTile(
-                leading: Icon(Icons.pets),
+                leading: CircleAvatar(child: Icon(Icons.pets)),
                 title: Text(s.nome),
               );
             }),
+        Divider(
+          thickness: 1,
+          color: ThemeUtils.primaryColor,
+        ),
       ],
     );
   }

@@ -1,42 +1,86 @@
 {
   "project_info": {
-    "project_number": "873066128981",
-    "project_id": "cuidapet-fornecedor",
-    "storage_bucket": "cuidapet-fornecedor.appspot.com"
+    "project_number": "73283127333",
+    "firebase_url": "https://cuidapet-curso-b58a8.firebaseio.com",
+    "project_id": "cuidapet-curso-b58a8",
+    "storage_bucket": "cuidapet-curso-b58a8.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:873066128981:android:d727f86305c258777216dc",
+        "mobilesdk_app_id": "1:73283127333:android:a5972bcdd35369a1e597cc",
         "android_client_info": {
           "package_name": "br.com.lucianamenezes.cuidapet_fornecedor"
         }
       },
       "oauth_client": [
         {
-          "client_id": "873066128981-ag4f7ikun7gggcvku3669et7c46emgm1.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "br.com.lucianamenezes.cuidapet_fornecedor",
-            "certificate_hash": "036e46fe1005cf012e2a1340ec265916b6dfd29d"
-          }
-        },
-        {
-          "client_id": "873066128981-6h5fvb6i3d41c94oi166i716ogpfod5b.apps.googleusercontent.com",
+          "client_id": "73283127333-fam7q1uh8i3oo9vkt9arouve71n8bgfr.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBLnVEnMtqgwRwyO5ayOBTgvRh2pM82rPQ"
+          "current_key": "AIzaSyBRh45IjjFosqTXgWGADrvXEfg3vQEBLao"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "873066128981-6h5fvb6i3d41c94oi166i716ogpfod5b.apps.googleusercontent.com",
+              "client_id": "73283127333-fam7q1uh8i3oo9vkt9arouve71n8bgfr.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "73283127333-1ldn9ojmtq0e0dgkvbfcoqn6o53e6eob.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.cuidapetCurso"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:73283127333:android:e55538bac1a6454ae597cc",
+        "android_client_info": {
+          "package_name": "com.example.cuidapet_curso"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "73283127333-b3t6ckr3d5dp5esnre7kim9s31ojkhr0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cuidapet_curso",
+            "certificate_hash": "bad1dd5ac429a69e78b5bf5976aa5d873635dc38"
+          }
+        },
+        {
+          "client_id": "73283127333-fam7q1uh8i3oo9vkt9arouve71n8bgfr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRh45IjjFosqTXgWGADrvXEfg3vQEBLao"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "73283127333-fam7q1uh8i3oo9vkt9arouve71n8bgfr.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "73283127333-1ldn9ojmtq0e0dgkvbfcoqn6o53e6eob.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.cuidapetCurso"
+              }
             }
           ]
         }

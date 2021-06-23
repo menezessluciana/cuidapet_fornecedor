@@ -33,7 +33,6 @@ class ScheduleItemList extends StatelessWidget {
       },
     };
 
-    print(_scheduleModel);
     return InkWell(
       onTap: () =>
           {Modular.to.pushNamed('/schedule', arguments: _scheduleModel)},

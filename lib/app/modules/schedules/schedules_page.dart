@@ -46,16 +46,19 @@ class _SchedulesPageState
                     minHeight: constraints.maxHeight,
                     minWidth: constraints.maxWidth),
                 child: IntrinsicHeight(
-                  child: Column(
-                    children: <Widget>[
-                      _buildTitleContent(),
-                      _buildFilterStatus(),
-                      Expanded(child: _buildSchedulesList()),
-                      // FlatButton(
-                      //     child: Text('logout'),
-                      //     onPressed: () async =>
-                      //         (await SharedPreferences.getInstance()).clear()),
-                    ],
+                  child: Container(
+                    margin: EdgeInsets.all(10),
+                    child: Column(
+                      children: <Widget>[
+                        _buildTitleContent(),
+                        _buildFilterStatus(),
+                        Expanded(child: _buildSchedulesList()),
+                        // FlatButton(
+                        //     child: Text('logout'),
+                        //     onPressed: () async =>
+                        //         (await SharedPreferences.getInstance()).clear()),
+                      ],
+                    ),
                   ),
                 ),
               ),

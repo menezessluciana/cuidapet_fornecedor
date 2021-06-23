@@ -3,23 +3,23 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>873066128981-npqb2t0r8995rql53hek0hejp48t8efd.apps.googleusercontent.com</string>
+	<string>73283127333-ejakju9v3o8ith1cu6q7ee7dvv2leuhg.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.873066128981-npqb2t0r8995rql53hek0hejp48t8efd</string>
+	<string>com.googleusercontent.apps.73283127333-ejakju9v3o8ith1cu6q7ee7dvv2leuhg</string>
 	<key>ANDROID_CLIENT_ID</key>
-	<string>873066128981-ag4f7ikun7gggcvku3669et7c46emgm1.apps.googleusercontent.com</string>
+	<string>73283127333-b3t6ckr3d5dp5esnre7kim9s31ojkhr0.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
-	<string>AIzaSyC0vkFRvj6P_7YRnrNmXqJjeW-dkb2VzuE</string>
+	<string>AIzaSyDqmRY3tr5w_YRZ_DeLeGITqm1sra6IjnQ</string>
 	<key>GCM_SENDER_ID</key>
-	<string>873066128981</string>
+	<string>73283127333</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>br.com.lucianamenezes.cuidapetFornecedor</string>
 	<key>PROJECT_ID</key>
-	<string>cuidapet-fornecedor</string>
+	<string>cuidapet-curso-b58a8</string>
 	<key>STORAGE_BUCKET</key>
-	<string>cuidapet-fornecedor.appspot.com</string>
+	<string>cuidapet-curso-b58a8.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -31,6 +31,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:873066128981:ios:549ae804eb6cc8f17216dc</string>
+	<string>1:73283127333:ios:be2e60b1140d2db1e597cc</string>
+	<key>DATABASE_URL</key>
+	<string>https://cuidapet-curso-b58a8.firebaseio.com</string>
 </dict>
 </plist>
