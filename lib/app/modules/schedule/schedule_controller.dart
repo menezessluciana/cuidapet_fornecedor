@@ -41,20 +41,26 @@ abstract class _ScheduleControllerBase with Store {
   }
 
   Future<void> getScheduleChat(int scheduleId) async {
-    var chats = await getChats();
-
-    var hasCreatedChat = chats.any((c) {
-      return c.agendamentoId == scheduleId;
-    });
-
-    if (hasCreatedChat) {
-      var chat = chats.where((c) => c.agendamentoId == scheduleId);
-      Modular.to.pushNamed('chats/chat', arguments: chat.first);
-    } else {
-      await _chatService.initChat(scheduleId);
+    try {
       var chats = await getChats();
-      var chat = chats.where((c) => c.agendamentoId == scheduleId);
-      Modular.to.pushNamed('chats/chat', arguments: chat.first);
+      var hasCreatedChat = chats.any((c) {
+        return c.agendamentoId == scheduleId;
+      });
+
+      if (hasCreatedChat) {
+        var chat = chats.where((c) => c.agendamentoId == scheduleId);
+        Modular.to.pushNamed('chats/chat', arguments: chat.first);
+      } else {
+        Loader.show();
+        await _chatService.initChat(scheduleId);
+        var chats = await getChats();
+        var chat = chats.where((c) => c.agendamentoId == scheduleId);
+        Loader.hide();
+        Modular.to.pushNamed('chats/chat', arguments: chat.first);
+      }
+    } catch (e) {
+      Loader.hide();
+      Get.snackbar('Erro', 'Erro ao recuperar chat');
     }
   }
 }
